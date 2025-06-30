@@ -1,0 +1,237 @@
+﻿<Window x:Class="WPF_Exam.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Exam"
+        mc:Ignorable="d"
+        Title="Клавиатурный тренажер 3000" Height="380" Width="810" ResizeMode="NoResize" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp" Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid x:Name="grid_main">
+        <TabControl Grid.ColumnSpan="4">
+            <TabItem x:Name="tab_play" Header="Тренажер">
+                <TabItem.Background>
+                    <ImageBrush/>
+                </TabItem.Background>
+                <Grid x:Name="grid_keyBoard">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image x:Name="img_lose" Source="/game_over.jpg" Height="0"/>
+                    <StackPanel Grid.Row="3" Orientation="Horizontal">
+                        <Button x:Name="D1" Style="{DynamicResource BStyle1}" Content="1"/>
+                        <Button x:Name="D2" Style="{DynamicResource BStyle1}" Content="2"/>
+                        <Button x:Name="D3" Style="{DynamicResource BStyle1}" Content="3"/>
+                        <Button x:Name="D4" Style="{DynamicResource BStyle1}" Content="4"/>
+                        <Button x:Name="D5" Style="{DynamicResource BStyle1}" Content="5"/>
+                        <Button x:Name="D6" Style="{DynamicResource BStyle1}" Content="6"/>
+                        <Button x:Name="D7" Style="{DynamicResource BStyle1}" Content="7"/>
+                        <Button x:Name="D8" Style="{DynamicResource BStyle1}" Content="8"/>
+                        <Button x:Name="D9" Style="{DynamicResource BStyle1}" Content="9"/>
+                        <Button x:Name="D0" Style="{DynamicResource BStyle1}" Content="0"/>
+                        <Button x:Name="OemMinus" Style="{DynamicResource BStyle1}" Content="-"/>
+                        <Button x:Name="OemPlus" Style="{DynamicResource BStyle1}" Content="="/>
+                        <Button x:Name="Back" Style="{DynamicResource BStyle2}" Content="Backspace" Width="194"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="4" Orientation="Horizontal">
+                        <Button x:Name="Tab" Style="{DynamicResource BStyle2}" Content="Tab" Width="103"/>
+                        <Button x:Name="Q" Style="{DynamicResource BStyle1}" Content="й"/>
+                        <Button x:Name="W" Style="{DynamicResource BStyle1}" Content="ц"/>
+                        <Button x:Name="E" Style="{DynamicResource BStyle1}" Content="у"/>
+                        <Button x:Name="R" Style="{DynamicResource BStyle1}" Content="к"/>
+                        <Button x:Name="T" Style="{DynamicResource BStyle1}" Content="е"/>
+                        <Button x:Name="Y" Style="{DynamicResource BStyle1}" Content="н"/>
+                        <Button x:Name="U" Style="{DynamicResource BStyle1}" Content="г"/>
+                        <Button x:Name="I" Style="{DynamicResource BStyle1}" Content="ш"/>
+                        <Button x:Name="O" Style="{DynamicResource BStyle1}" Content="щ"/>
+                        <Button x:Name="P" Style="{DynamicResource BStyle1}" Content="з"/>
+                        <Button x:Name="OemOpenBrackets" Style="{DynamicResource BStyle1}" Content="х"/>
+                        <Button x:Name="Oem6" Style="{DynamicResource BStyle1}" Content="ъ"/>
+                        <Button x:Name="Oem5" Style="{DynamicResource BStyle1}" Content="\" Width="86"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="5" Orientation="Horizontal">
+                        <Button x:Name="Capital" Style="{DynamicResource BStyle2}" Content="Caps Lock" Width="114"/>
+                        <Button x:Name="A" Style="{DynamicResource BStyle1}" Content="ф"/>
+                        <Button x:Name="S" Style="{DynamicResource BStyle1}" Content="ы"/>
+                        <Button x:Name="D" Style="{DynamicResource BStyle1}" Content="в"/>
+                        <Button x:Name="F" Style="{DynamicResource BStyle1}" Content="а"/>
+                        <Button x:Name="G" Style="{DynamicResource BStyle1}" Content="п"/>
+                        <Button x:Name="H" Style="{DynamicResource BStyle1}" Content="р"/>
+                        <Button x:Name="J" Style="{DynamicResource BStyle1}" Content="о"/>
+                        <Button x:Name="K" Style="{DynamicResource BStyle1}" Content="л"/>
+                        <Button x:Name="L" Style="{DynamicResource BStyle1}" Content="д"/>
+                        <Button x:Name="Oem1" Style="{DynamicResource BStyle1}" Content="ж"/>
+                        <Button x:Name="OemQuotes" Style="{DynamicResource BStyle1}" Content="э"/>
+                        <Button x:Name="Enter" Style="{DynamicResource BStyle2}" Content="Enter" Width="123"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="6" Orientation="Horizontal">
+                        <Button x:Name="LeftShift" Style="{DynamicResource BStyle2}" Content="Shift" Width="143"/>
+                        <Button x:Name="Z" Style="{DynamicResource BStyle1}" Content="я"/>
+                        <Button x:Name="X" Style="{DynamicResource BStyle1}" Content="ч"/>
+                        <Button x:Name="C" Style="{DynamicResource BStyle1}" Content="с"/>
+                        <Button x:Name="V" Style="{DynamicResource BStyle1}" Content="м"/>
+                        <Button x:Name="B" Style="{DynamicResource BStyle1}" Content="и"/>
+                        <Button x:Name="N" Style="{DynamicResource BStyle1}" Content="т"/>
+                        <Button x:Name="M" Style="{DynamicResource BStyle1}" Content="ь"/>
+                        <Button x:Name="OemComma" Style="{DynamicResource BStyle1}" Content="б"/>
+                        <Button x:Name="OemPeriod" Style="{DynamicResource BStyle1}" Content="ю"/>
+                        <Button x:Name="OemQuestion" Style="{DynamicResource BStyle1}" Content="."/>
+                        <Button x:Name="RightShift" Style="{DynamicResource BStyle2}" Content="Shift" Width="143"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="7" Orientation="Horizontal">
+                        <Button x:Name="LeftCtrl" Style="{DynamicResource BStyle2}" Content="Ctrl" Width="150"/>
+                        <Button x:Name="LWin" Style="{DynamicResource BStyle2}" Content="Win"/>
+                        <Button x:Name="LAlt" Style="{DynamicResource BStyle2}" Content="Alt"/>
+                        <Button x:Name="Space" Style="{DynamicResource BStyle1}" Content="" Width="274"/>
+                        <Button x:Name="RAltr" Style="{DynamicResource BStyle2}" Content="Alt"/>
+                        <Button x:Name="RWin" Style="{DynamicResource BStyle2}" Content="Win"/>
+                        <Button x:Name="RightCtrl" Style="{DynamicResource BStyle2}" Content="Ctrl" Width="150"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Orientation="Horizontal">
+                        <ProgressBar x:Name="progB_toEnd" Width="145" ToolTip="Прогресс ввода символов в режиме &quot;Кол-во слов&quot;"/>
+                        <TextBlock x:Name="write_text" Background="LightGray" TextAlignment="Left" FontSize="30" FontFamily="Times New Roman" Margin="0,0,0,0" Width="638" ToolTip="Символы для ввода"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <Rectangle x:Name="r_bug" Width="32" ToolTip="Страшный ужасный жук! Не дай ему добраться до тебя в бесконечном режиме!">
+                            <Rectangle.Fill>
+                                <ImageBrush ImageSource="/bug.png"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <ProgressBar x:Name="progB_fail" Height="30" Foreground="#FFEAB5B5" Width="722" ToolTip="Указывает, сколько вам осталось до порожения в режиме &quot;Бесконечный&quot;" Opacity="0.2"/>
+                        <TextBox x:Name="user_text" Height="30" Background="Yellow" Width="30" ToolTip="Ваш ввод" IsEnabled="False" MaxLength="1"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Button x:Name="bt_start" Content="Start" Width="50" Margin="3,3,3,3" ToolTip="Начать тренировку" Click="bt_start_Click"/>
+                        <Button x:Name="bt_stop" Content="Stop" Margin="3,3,3,3" Width="50" ToolTip="Завершить тренировку" IsEnabled="False" Click="bt_stop_Click"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Label x:Name="l_fails" Content="Ошибки: 0" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2"/>
+                        <Label x:Name="l_symbMin" Content="Символы/минута: 0" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2"/>
+                        <Label x:Name="l_timeSpent" Content="Времени прошло: 0" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tab_settings" Header="Настройки" Background="LightCyan">
+                <Grid HorizontalAlignment="Left" x:Name="grid_settings">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+                        <GroupBox Header="Режимы" Grid.Row="0">
+                            <StackPanel Orientation="Vertical">
+                                <RadioButton x:Name="rb_infinity" Content="Бесконечный" IsChecked="True" Checked="rb_infinity_Checked" ToolTip="Бесконечный режим: тренируйтесь до тех пор, пока не устанете! Добавляет возможность проигрыша. Больше подходит для развлечения"/>
+                                <RadioButton x:Name="rb_someWords" Content="Кол-во слов:" Checked="rb_someWords_Checked" ToolTip="Кол-во слов: пользователю предстоит ввести определенное кол-во &quot;слов&quot;. Удобен для обычного обучения"/>
+                            </StackPanel>
+                        </GroupBox>
+                        <ListBox x:Name="list_wordsCount" Grid.Row="1" SelectedIndex="0" IsEnabled="False"/>
+                        <GroupBox x:Name="gb_lang" Grid.Row="2" Header="Языки">
+                            <StackPanel Orientation="Vertical">
+                                <RadioButton x:Name="rb_ru" Content="Русский" IsChecked="True" Checked="rb_ru_Checked"/>
+                                <RadioButton x:Name="rb_us" Content="Английский" Checked="rb_us_Checked"/>
+                            </StackPanel>
+                        </GroupBox>
+                        <CheckBox Grid.Row="3" x:Name="cb_fail" Content="Проигрыш" ToolTip="В бесконечном режиме добавляет шкалу проигрыша, заполняющуюся со временем и допущении пользователем ошибок. В случае полного заполнения шкалы пользователь проигрывает, тренировка заканчивается"/>
+                        <Slider x:Name="slider_dif" Grid.Row="4" Minimum="1" Maximum="5" IsSnapToTickEnabled="True" ToolTip="Перемещайте для смены сложности в бесконечном режиме"/>
+                        <StackPanel Grid.Row="5" Orientation="Vertical">
+                            <Label Content="Сложность бесконечности:" ToolTip="Текущая сложность бесконечного режима"/>
+                            <Label Content="{Binding ElementName=slider_dif, Path=Value}" ToolTip="Значение сложности бесконечного режима"/>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <GroupBox Header="Учимся набирать">
+                            <StackPanel Orientation="Vertical">
+                                <RadioButton x:Name="rb_writeLetters" Content="Буквы" IsChecked="True" Checked="rb_writeLetters_Checked"/>
+                                <RadioButton x:Name="rb_writeNumbers" Content="Цифры" Checked="rb_writeNumbers_Checked"/>
+                                <RadioButton x:Name="rb_writeSymbols" Content="Символы" Checked="rb_writeSymbols_Checked"/>
+                                <RadioButton x:Name="rb_writeAll" Content="Все" Checked="rb_writeAll_Checked"/>
+                            </StackPanel>
+                        </GroupBox>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*"/>
+                            <RowDefinition Height="7*"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+                        <GroupBox x:Name="ruLetters" Grid.Row="0" Header="Русские буквы">
+                            <StackPanel x:Name="gb_ruLetters">
+                                <RadioButton x:Name="rb_rus1" Content="вапрол"/>
+                                <RadioButton x:Name="rb_rus2" Content="фыджэ"/>
+                                <RadioButton x:Name="rb_rus3" Content="кенгшщ"/>
+                                <RadioButton x:Name="rb_rus4" Content="йцузхъ"/>
+                                <RadioButton x:Name="rb_rus5" Content="мить"/>
+                                <RadioButton x:Name="rb_rus6" Content="ячсбю"/>
+                                <RadioButton x:Name="rb_rusAll" Content="Все" IsChecked="True"/>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox x:Name="EngLetters" Grid.Row="1" Header="Английские буквы" IsEnabled="False">
+                            <StackPanel x:Name="gb_EngLetters">
+                                <RadioButton x:Name="rb_eng1" Content="dfghj"/>
+                                <RadioButton x:Name="rb_eng2" Content="askl"/>
+                                <RadioButton x:Name="rb_eng3" Content="rtyui"/>
+                                <RadioButton x:Name="rb_eng4" Content="qweop"/>
+                                <RadioButton x:Name="rb_eng5" Content="zxcvbnm"/>
+                                <RadioButton x:Name="rb_engAll" Content="Все" IsChecked="True"/>
+                            </StackPanel>
+                        </GroupBox>
+                        <CheckBox Grid.Row="2" x:Name="cb_caps" Content="Прописные буквы"/>
+                    </Grid>
+                    <Grid Grid.Column="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*"/>
+                            <RowDefinition Height="12*"/>
+                        </Grid.RowDefinitions>
+                        <GroupBox x:Name="numbers" Grid.Row="0" Header="Цифры" IsEnabled="False">
+                            <StackPanel x:Name="gb_numbers">
+                                <RadioButton x:Name="rb_num45678" Content="45678"/>
+                                <RadioButton x:Name="rb_num12390" Content="12390"/>
+                                <RadioButton x:Name="rb_numAll" Content="Все" IsChecked="True"/>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox x:Name="symbols" Grid.Row="1" Header="Сиволы" IsEnabled="False">
+                            <StackPanel x:Name="gb_symbols">
+                                <RadioButton x:Name="rb_symb1"/>
+                                <RadioButton x:Name="rb_symb2"/>
+                                <RadioButton x:Name="rb_symb3" Content="[]{}-=_+"/>
+                                <RadioButton x:Name="rb_symb4" Content="!@#№()"/>
+                                <RadioButton x:Name="rb_symb5"/>
+                                <RadioButton x:Name="rb_symbAll" Content="Все" IsChecked="True"/>
+                            </StackPanel>
+                        </GroupBox>
+                    </Grid>
+                </Grid>
+
+            </TabItem>
+        </TabControl>
+    </Grid>
+
+</Window>
